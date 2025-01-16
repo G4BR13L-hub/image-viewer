@@ -16,7 +16,7 @@ import static javax.imageio.ImageIO.read;
 public class SwingImageDisplay extends JPanel implements ImageDisplay {
     private Displacement displacement = Displacement.Null;
     private Releasement releasement = Releasement.Null;
-    private int coordX;
+    private int coordinateX;
     private final List<ImageInfo> imageInfo = new ArrayList<>();
     private SizeListener sizeListener = SizeListener.NULL;
 
@@ -57,12 +57,12 @@ public class SwingImageDisplay extends JPanel implements ImageDisplay {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                coordX = e.getX();
+                coordinateX = e.getX();
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                releasement.offset(e.getX() - coordX);
+                releasement.offset(e.getX() - coordinateX);
             }
 
             @Override
@@ -77,7 +77,7 @@ public class SwingImageDisplay extends JPanel implements ImageDisplay {
         return new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
-                displacement.offset(e.getX() - coordX);
+                displacement.offset(e.getX() - coordinateX);
             }
 
             @Override
@@ -109,7 +109,7 @@ public class SwingImageDisplay extends JPanel implements ImageDisplay {
                 BufferedImage resizedImage = resizeImage(originalImage, getWidth(), getHeight());
                 g.drawImage(resizedImage, info.offset, 0, this);
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new RuntimeException("Error loading image: " + info.id, e);
             }
         }
     }

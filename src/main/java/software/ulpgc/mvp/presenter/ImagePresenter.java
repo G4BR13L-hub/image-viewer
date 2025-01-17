@@ -1,8 +1,8 @@
-package software.ulpgc.imageviewer.presenter;
+package software.ulpgc.mvp.presenter;
 
-import software.ulpgc.imageviewer.model.Image;
-import software.ulpgc.imageviewer.view.ImageDisplay;
-import software.ulpgc.imageviewer.view.ViewPort;
+import software.ulpgc.mvp.model.Image;
+import software.ulpgc.mvp.view.ImageDisplay;
+import software.ulpgc.mvp.view.ViewPort;
 
 public class ImagePresenter {
     private final ImageDisplay display;

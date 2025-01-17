@@ -1,7 +1,7 @@
-package software.ulpgc.imageviewer.application;
+package software.ulpgc.mvp.application;
 
 
-import software.ulpgc.imageviewer.view.ImageDisplay;
+import software.ulpgc.mvp.view.ImageDisplay;
 
 import javax.swing.*;
 import java.awt.*;

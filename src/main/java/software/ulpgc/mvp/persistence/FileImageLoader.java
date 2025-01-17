@@ -1,10 +1,8 @@
-package software.ulpgc.imageviewer.persistence;
+package software.ulpgc.mvp.persistence;
 
-import software.ulpgc.imageviewer.model.Image;
+import software.ulpgc.mvp.model.Image;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -37,11 +35,6 @@ public class FileImageLoader implements ImageLoader {
             }
 
             @Override
-            public byte[] content() {
-                return readFileContent(files[index]);
-            }
-
-            @Override
             public Image next() {
                 return hasNext(files, index) ?
                         createImage(files, index + 1) :
@@ -70,14 +63,6 @@ public class FileImageLoader implements ImageLoader {
         String[] extensions = {"jpg", "png", "jpeg", "gif"};
         String extension = getFileExtension(file.getName());
         return List.of(extensions).contains(extension);
-    }
-
-    private byte[] readFileContent(File file) {
-        try {
-            return Files.readAllBytes(file.toPath());
-        } catch (IOException e) {
-            throw new RuntimeException("Error reading file content: " + file.getAbsolutePath(), e);
-        }
     }
 
     private String getFileExtension(String fileName) {

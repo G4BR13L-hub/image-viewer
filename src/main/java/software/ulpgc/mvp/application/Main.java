@@ -1,9 +1,9 @@
-package software.ulpgc.imageviewer.application;
+package software.ulpgc.mvp.application;
 
 
-import software.ulpgc.imageviewer.model.Image;
-import software.ulpgc.imageviewer.persistence.FileImageLoader;
-import software.ulpgc.imageviewer.presenter.ImagePresenter;
+import software.ulpgc.mvp.model.Image;
+import software.ulpgc.mvp.persistence.FileImageLoader;
+import software.ulpgc.mvp.presenter.ImagePresenter;
 
 import java.util.List;
 

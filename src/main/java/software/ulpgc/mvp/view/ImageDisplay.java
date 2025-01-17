@@ -1,8 +1,7 @@
-package software.ulpgc.imageviewer.view;
+package software.ulpgc.mvp.view;
 
 public interface ImageDisplay {
     void drawImage(String id, int offset);
-    int getWidth();
     void clear();
     void onResize(SizeListener listener);
     void on(Displacement shift);
